@@ -11,7 +11,16 @@ namespace Counter.BusinessLogic
 	public class CounterDelay
 	{
 
-		public void Count(int countTill, int delayTime, Action<int> whenWaitingIsFinished)
+        private int delayTime;
+        private int countTill;
+
+        public CounterDelay(int delay, int count)
+        {
+            delayTime = delay;
+            countTill = count;
+        }
+
+        public void Count(Action<int> whenWaitingIsFinished)
 		{
 			for (int i = 0; i < countTill; i++)
 			{

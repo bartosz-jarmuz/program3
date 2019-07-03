@@ -14,31 +14,56 @@ namespace Counter.WinForms
 {
 	public partial class Form1 : Form
 	{
-		public Form1()
+        public Form1()
 		{
 			InitializeComponent();
-		}
-		
-		private void StartButton_Click(object sender, EventArgs e)
-		{
-			
+        }
+
+        List<CounterDelay> CounterList = new List<CounterDelay>();
+
+        private void AddCounterButton_Click(object sender, EventArgs e)
+        {
+            int delayTime = Decimal.ToInt32(InputDelayTime.Value);
+            int countTill = Decimal.ToInt32(CountTill.Value);
+
+            CounterDelay Counter = new CounterDelay(delayTime, countTill);
+            CounterList.Add(Counter);
+            OutputTextBox.AppendText($"Counter {CounterList.Count.ToString()} - Counting till {countTill} Delay -{delayTime}\r\n");
+        }
+
+        private void StartButton_Click(object sender, EventArgs e)
+		{	
 			OutputTextBox.Clear();
+            //int delayTime = Decimal.ToInt32(InputDelayTime.Value);
+            //int countTill = Decimal.ToInt32(CountTill.Value);
+            //CounterDelay counter = new CounterDelay();
 
-			int delayTime = Decimal.ToInt32(InputDelayTime.Value);
-			int countTill = Decimal.ToInt32(CountTill.Value);
+            //Action<int> callback = output;
+            //counter.Count(countTill, delayTime, (x)=> OutputTextBox.AppendText($"{x}"));
 
-			CounterDelay counter = new CounterDelay();
+            //counter.Count(countTill, delayTime, callback);
 
-			Action<int> callback = output;
-			//counter.Count(countTill, delayTime, (x)=> OutputTextBox.AppendText($"{x}"));
+            //OutputCounters();
+            //OutputCounters();
+            BeginInvoke(new Action (() =>OutputCounters()));
+            
+        }
 
-			counter.Count(countTill, delayTime, callback);
+        private async void OutputCounters()
+        {
+            foreach (var counterx in CounterList)
+            {   
+                counterx.Count((x) =>  OutputTextBox.AppendText($"{x}"));
+                OutputTextBox.AppendText("\r\n");
+                
+            }
+            
+        }
 
-		}
+        //private void OutputCounters(int x)
+        //{
+        //    OutputTextBox.AppendText($"{x}");
+        //}
 
-		private void output(int x)
-		{
-			OutputTextBox.AppendText($"{x}");
-		}
-	}
+    }
 }
