@@ -23,17 +23,33 @@ namespace Counter.WinForms
 
         private void AddCounterButton_Click(object sender, EventArgs e)
         {
-            int delayTime = Decimal.ToInt32(InputDelayTime.Value);
-            int countTill = Decimal.ToInt32(CountTill.Value);
+            if (InputSelectedCounter.SelectedIndex == 1) //NUMERIC
+            {
+                int delayTime = Decimal.ToInt32(InputDelayTime.Value);
+                int countTill = Decimal.ToInt32(CountTill.Value);
 
-            CounterDelay Counter = new CounterDelay(delayTime, countTill);
-            CounterList.Add(Counter);
-            OutputTextBox.AppendText($"Counter {CounterList.Count.ToString()} - Counting till {countTill} Delay -{delayTime}\r\n");
+                CounterDelay Counter = new CounterDelay(delayTime, countTill);
+                CounterList.Add(Counter);
+                OutputTextBox.AppendText($"Counter {CounterList.Count.ToString()} - Counting till {countTill} Delay -{delayTime}\r\n");
+            }
+            else if (InputSelectedCounter.SelectedIndex == 0) //TEXT
+            {
+                ConvertToNumeric num = new ConvertToNumeric(textBox1.Text, textBox2.Text);
+                CounterDelay Counter = new CounterDelay(num.ReturnNumericDelayTime(textBox1.Text), num.ReturnNumericcountTill(textBox2.Text));
+                CounterList.Add(Counter);
+                OutputTextBox.AppendText($"Counter {CounterList.Count.ToString()} - Counting till {num.ReturnNumericcountTill(textBox2.Text)} Delay -{num.ReturnNumericDelayTime(textBox1.Text)}\r\n");
+            }
         }
 
         private void StartButton_Click(object sender, EventArgs e)
 		{	
 			OutputTextBox.Clear();
+
+            foreach (var counterx in CounterList)
+            {
+                counterx.Count((x) => OutputTextBox.AppendText($"{x}"));
+                OutputTextBox.AppendText("\r\n");
+            }
             //int delayTime = Decimal.ToInt32(InputDelayTime.Value);
             //int countTill = Decimal.ToInt32(CountTill.Value);
             //CounterDelay counter = new CounterDelay();
@@ -45,20 +61,36 @@ namespace Counter.WinForms
 
             //OutputCounters();
             //OutputCounters();
-            BeginInvoke(new Action (() =>OutputCounters()));
-            
+            //BeginInvoke(new Action (() =>OutputCounters()));
+
         }
 
-        private async void OutputCounters()
+        private void InputSelectedCounter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (var counterx in CounterList)
-            {   
-                counterx.Count((x) =>  OutputTextBox.AppendText($"{x}"));
-                OutputTextBox.AppendText("\r\n");
-                
+            if (InputSelectedCounter.SelectedIndex == 0) //TEXT
+            {
+                panel1.Visible = true;
+                panel2.Visible = false;
             }
-            
+            else if (InputSelectedCounter.SelectedIndex == 1) //NUMERIC
+            {
+                panel1.Visible = false;
+                panel2.Visible = true;
+            }
         }
+
+        //private async void OutputCounters()
+        //{
+        //    foreach (var counterx in CounterList)
+        //    {   
+        //        counterx.Count((x) =>  OutputTextBox.AppendText($"{x}"));
+        //        OutputTextBox.AppendText("\r\n");
+
+        //    }
+
+        //}
+
+
 
         //private void OutputCounters(int x)
         //{
