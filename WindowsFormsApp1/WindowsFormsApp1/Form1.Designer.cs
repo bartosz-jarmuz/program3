@@ -39,12 +39,12 @@
             this.AddCounterButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.PanelTextInput = new System.Windows.Forms.Panel();
+            this.PanelNumericInput = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.CountTill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputDelayTime)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.PanelTextInput.SuspendLayout();
+            this.PanelNumericInput.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartButton
@@ -82,14 +82,14 @@
             // 
             // CountTill
             // 
-            this.CountTill.Location = new System.Drawing.Point(128, 20);
+            this.CountTill.Location = new System.Drawing.Point(129, 3);
             this.CountTill.Name = "CountTill";
             this.CountTill.Size = new System.Drawing.Size(120, 20);
             this.CountTill.TabIndex = 3;
             // 
             // InputDelayTime
             // 
-            this.InputDelayTime.Location = new System.Drawing.Point(2, 20);
+            this.InputDelayTime.Location = new System.Drawing.Point(3, 3);
             this.InputDelayTime.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -102,7 +102,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(128, 3);
+            this.label2.Location = new System.Drawing.Point(306, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 5;
@@ -111,7 +111,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-1, 3);
+            this.label3.Location = new System.Drawing.Point(177, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 6;
@@ -137,58 +137,57 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(253, 3);
+            this.textBox2.Location = new System.Drawing.Point(135, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 12;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 3);
+            this.textBox1.Location = new System.Drawing.Point(9, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 11;
             // 
-            // panel1
+            // PanelTextInput
             // 
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Location = new System.Drawing.Point(12, 190);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(535, 44);
-            this.panel1.TabIndex = 13;
+            this.PanelTextInput.Controls.Add(this.textBox1);
+            this.PanelTextInput.Controls.Add(this.textBox2);
+            this.PanelTextInput.Location = new System.Drawing.Point(139, 30);
+            this.PanelTextInput.Name = "PanelTextInput";
+            this.PanelTextInput.Size = new System.Drawing.Size(241, 26);
+            this.PanelTextInput.TabIndex = 13;
             // 
-            // panel2
+            // PanelNumericInput
             // 
-            this.panel2.Controls.Add(this.CountTill);
-            this.panel2.Controls.Add(this.InputDelayTime);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(139, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(258, 52);
-            this.panel2.TabIndex = 14;
+            this.PanelNumericInput.Controls.Add(this.CountTill);
+            this.PanelNumericInput.Controls.Add(this.InputDelayTime);
+            this.PanelNumericInput.Location = new System.Drawing.Point(139, 30);
+            this.PanelNumericInput.Name = "PanelNumericInput";
+            this.PanelNumericInput.Size = new System.Drawing.Size(257, 30);
+            this.PanelNumericInput.TabIndex = 14;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 258);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PanelTextInput);
             this.Controls.Add(this.AddCounterButton);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.OutputTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.InputSelectedCounter);
             this.Controls.Add(this.StartButton);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.PanelNumericInput);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.CountTill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputDelayTime)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.PanelTextInput.ResumeLayout(false);
+            this.PanelTextInput.PerformLayout();
+            this.PanelNumericInput.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,8 +206,8 @@
         private System.Windows.Forms.Button AddCounterButton;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel PanelTextInput;
+        private System.Windows.Forms.Panel PanelNumericInput;
     }
 }
 

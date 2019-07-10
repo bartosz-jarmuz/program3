@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter.WinForms", "Windows
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter.BusinessLogic", "Counter.BusinessLogic\Counter.BusinessLogic.csproj", "{7A74D765-1FDC-41F5-9682-6B761EA307D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter.ConsoleApp", "ConsoleApp1\Counter.ConsoleApp.csproj", "{3D1D8C1A-0AFB-40A8-BC73-A4BE8A823D97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7A74D765-1FDC-41F5-9682-6B761EA307D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A74D765-1FDC-41F5-9682-6B761EA307D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A74D765-1FDC-41F5-9682-6B761EA307D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1D8C1A-0AFB-40A8-BC73-A4BE8A823D97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1D8C1A-0AFB-40A8-BC73-A4BE8A823D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1D8C1A-0AFB-40A8-BC73-A4BE8A823D97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1D8C1A-0AFB-40A8-BC73-A4BE8A823D97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
