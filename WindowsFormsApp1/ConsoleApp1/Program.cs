@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Counter.ConsoleApp
 {
-    class Program
+    class Program 
     {
-        static void Main(string[] args)
+        static void Main(string[] args) //suppose that is incomplete
         {
             string InputCounter;
             do

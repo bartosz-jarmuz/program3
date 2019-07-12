@@ -24,7 +24,7 @@ namespace Counter.WinForms
         
         private void AddCounterButton_Click(object sender, EventArgs e)
         {
-            if (InputSelectedCounter.SelectedIndex == 1) //NUMERIC
+            if (InputSelectedCounter.SelectedIndex == 1) //NUMERIC - perhaps there is a better way to refer to counter type rather than by int (and then including comment)
             {
                 int delayTime = Decimal.ToInt32(InputDelayTime.Value);
                 int countTill = Decimal.ToInt32(CountTill.Value);
@@ -35,7 +35,7 @@ namespace Counter.WinForms
             }
             else if (InputSelectedCounter.SelectedIndex == 0) //TEXT
             {
-                ConvertToNumeric Numeric = new ConvertToNumeric(textBox1.Text, textBox2.Text);
+                ConvertToNumeric Numeric = new ConvertToNumeric(textBox1.Text, textBox2.Text); 
                 CounterDelay Counter = new CounterDelay(Numeric.ReturnNumericDelayTime(textBox1.Text), Numeric.ReturnNumericcountTill(textBox2.Text));
                 CounterList.Add(Counter);
                 OutputTextBox.AppendText($"Counter {CounterList.Count.ToString()} - Counting till {Numeric.ReturnNumericcountTill(textBox2.Text)} Delay -{Numeric.ReturnNumericDelayTime(textBox1.Text)}\r\n");
@@ -66,8 +66,12 @@ namespace Counter.WinForms
         {
             foreach (var counter in CounterList)
             {
-                await Task.Run(() => {
-                    counter.Count((x) => OutputTextBox.AppendText($"{x}"));
+                await Task.Run(() =>
+                {
+                    //here you start a new, non UI thread
+                    counter.Count((x) =>
+                        OutputTextBox//but the OutputTextBox can only be accessed from the UI thread
+                            .AppendText($"{x}")); 
                 });
                 //counterx.Count((x) => OutputTextBox.AppendText($"{x}"));
                 OutputTextBox.AppendText("\r\n");

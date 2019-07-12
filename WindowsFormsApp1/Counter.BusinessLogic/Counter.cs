@@ -9,7 +9,7 @@ using System.Threading;
 namespace Counter.BusinessLogic
 {
 
-    public class CounterDelay
+    public class CounterDelay //put each class in a separate file. The file name should be exactly the class name
     {
 
         private int delayTime;
@@ -21,7 +21,7 @@ namespace Counter.BusinessLogic
             countTill = count;
         }
 
-        public void Count(Action<int> whenWaitingIsFinished)
+        public void Count(Action<int> whenWaitingIsFinished) //good use of generic delegate. But, in your cross-thread & multithreaded scenario, it won't work (in WinForms)
         {
             for (int i = 0; i < countTill; i++)
             {
@@ -31,7 +31,7 @@ namespace Counter.BusinessLogic
         }
     }
 
-    public class ConvertToNumeric
+    public class ConvertToNumeric 
     {
         private int delayTime;
         private int countTill;
@@ -51,7 +51,7 @@ namespace Counter.BusinessLogic
             return Convert.ToInt32(ParseEnglish(countTillString));
         }
 
-        public int ParseEnglish(string number)
+        public int ParseEnglish(string number) //stack overflow, well done:)
         {
             string[] words = number.ToLower().Split(new char[] { ' ', '-', ',' }, StringSplitOptions.RemoveEmptyEntries);
             string[] ones = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
